@@ -4,11 +4,10 @@
       app
       dark      
       color="#141414"
-      height="93">
+      :height="smallScreen ? 60 : 93">
 
       <img
-        class="logo"
-        height="33px"
+        class="logo"        
         src="@/assets/images/logo.svg"/>
 
       <v-spacer></v-spacer>
@@ -18,7 +17,7 @@
       <v-avatar
         class="avatar"
         color="white"
-        size="57"/>
+        :size="smallScreen ? 40 : 57"/>
     </v-app-bar>
 
     <v-main>
@@ -28,24 +27,44 @@
 </template>
 
 <script>
+import WindowSize from './mixins/WindowSize'
+
 export default {
-  name: 'App'
+  name: 'App',
+  mixins: [ WindowSize ]
 }
 </script>
 
 <style lang="scss">
-#topbar {
-  .logo {
-    margin-left: 18px;
+#topbar { 
+  @media screen and (max-width: 600px) {        
+    .logo {
+      height: 26px;
+    }
+
+    .username {
+      font-size: 12px;
+    }
+
+    .avatar {
+      margin-left: 8px;      
+    }
   }
 
-  .username {
-    font-size: 20px;    
-  }
+  @media screen and (min-width: 600px) {      
+    .logo {
+      margin-left: 18px;
+      height: 33px;
+    }
 
-  .avatar {
-    margin-left: 38px;
-    margin-right: 26px;
+    .username {
+      font-size: 20px;    
+    }
+
+    .avatar {
+      margin-left: 38px;      
+      margin-right: 26px;
+    }
   }
 }
 </style>

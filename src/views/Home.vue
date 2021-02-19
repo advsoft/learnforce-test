@@ -10,7 +10,7 @@
         align-center
         justify-center
         class="white-block">
-        <span class="block-title mb-4">Wat leuk dat we deze reis samen aan gaan</span>
+        <span class="block-title font70 mb-4">Wat leuk dat we deze reis samen aan gaan</span>
         <span class="block-text">Zoek je de juiste handvatten om echt door te zetten? Ben jij klaar voor de volgende stap in je carrière? Ik geloof in jouw succes! Samen gaan we aan de slag met ingrediënten voor persoonlijke groei.</span>
         <span class="block-name"><b>Angelien Landstra –</b> Founder Leadership Solutions</span>
       </v-layout>
@@ -30,7 +30,7 @@
         align-center
         justify-center
         class="color-block">
-        <span class="block-title mb-4">Ieder deel van de training heeft een werkboek</span>
+        <span class="block-title font70 mb-4">Ieder deel van de training heeft een werkboek</span>
         <span class="block-text">Zo verdiep je de materie en krijg je praktische opdrachten om het geleerde meteen in de praktijk te brengen.</span>
 
         <v-btn
@@ -48,7 +48,7 @@
         align-center
         justify-center
         class="white-block">
-        <span class="block-title mb-4">Spraakmakende webinars & events</span>
+        <span class="block-title font70 mb-4">Spraakmakende webinars & events</span>
         <span class="block-text">In het programma wordt je geregeld uitgenodigd voor webinars, ask-me-anything calls en live events. Heb je gerichte vragen of uitdagingen? Stel ze in de webinars en je krijgt persoonlijk advies.</span>
       </v-layout>
 
@@ -67,7 +67,7 @@
         align-center
         justify-center
         class="color-block">
-        <span class="block-title mb-4">Leer met iedere device, waar je ook bent op eigen tempo</span>
+        <span class="block-title font70 mb-4">Leer met iedere device, waar je ook bent op eigen tempo</span>
         <span class="block-text">Wisselen van laptop naar tablet of mobiel? Geen enkel probleem! Log in met je andere device en je kunt meteen verder waar je gebleven was. Wel zo handig.</span>
       </v-layout>      
     </v-layout>
@@ -75,7 +75,7 @@
     <v-layout
       align-center
       justify-center
-      class="font-weight-bold text-trainers text-center">
+      class="font70 font-weight-bold text-trainers text-center">
       Over de trainers
     </v-layout>
 
@@ -107,8 +107,8 @@
         </div>
       </v-layout>
 
-      <span class="text-time font-weight-bold mt-10">11:11:11</span>
-      <span class="text-your-journey font-weight-bold text-center">Your journey starts now</span>
+      <span class="text-time font-weight-bold mt-10">{{ currentTime }}</span>
+      <span class="font70 font-weight-bold text-center">Your journey starts now</span>
       <v-btn
         class="code-button my-10"
         outlined x-large
@@ -133,12 +133,27 @@
 </template>
 
 <script>
+import moment from 'moment'
 import MainBackground from '@/components/MainBackground'
 
 export default {
   name: 'Home',
   components: {
     MainBackground
+  },
+  data () {
+    return {
+      timer: null,
+      currentTime: null
+    }
+  },
+  mounted () {
+    this.timer = window.setInterval(() => {
+      this.currentTime = moment().format('HH:mm:ss')
+    }, 500)
+  },
+  beforeDestroy () {
+    window.clearInterval(this.timer)
   }
 }
 </script>
@@ -154,7 +169,6 @@ export default {
     padding: 8%;
 
     .block-title {
-      font-size: 70px;
       font-family: Neuton;
       font-weight: bold;
       line-height: 1;
@@ -162,12 +176,25 @@ export default {
     }
 
     .block-text {
-      font-size: 35px;
+      @media screen and (max-width: 600px) {
+        font-size: 18px;
+      }
+
+      @media screen and (min-width: 600px) {
+        font-size: 35px;
+      }
     }
 
     .block-name {
-      margin-top: 80px;
-      font-size: 27px;
+      @media screen and (max-width: 600px) {      
+        margin-top: 40px;
+        font-size: 13px;
+      }
+
+      @media screen and (min-width: 600px) {
+        margin-top: 80px;
+        font-size: 27px;
+      }
     }
 
     button {
@@ -197,9 +224,15 @@ export default {
 
   .text-trainers {
     background-color: #fcfafa;
-    height: 331px;
     font-family: Neuton;
-    font-size: 70px;
+
+    @media screen and (max-width: 600px) {
+      height: 150px;
+    }
+
+    @media screen and (min-width: 600px) {
+      height: 331px;      
+    }
   }
 
   .bottom-section {
@@ -213,21 +246,36 @@ export default {
       }
 
       .trainer-name {
-        font-size: 49px;
+        @media screen and (max-width: 600px) {      
+          font-size: 25px;
+        }
+
+        @media screen and (min-width: 600px) {
+          font-size: 49px;
+        }
       }
 
       .trainer-desc {
-        font-size: 40px;
+        @media screen and (max-width: 600px) {      
+          font-size: 20px;
+        }
+
+        @media screen and (min-width: 600px) {
+          font-size: 40px;
+        }
+
         font-family: Roboto;        
       }      
     }
 
     .text-time {
-      font-size: 90px;
-    }
+      @media screen and (max-width: 600px) {      
+        font-size: 45px;
+      }
 
-    .text-your-journey {
-      font-size: 70px;
+      @media screen and (min-width: 600px) {
+        font-size: 90px;
+      }
     }
 
     button {

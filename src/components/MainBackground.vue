@@ -30,9 +30,11 @@
         v-for="(item, index) in bottomText"
         :key="index"
         class="bottom-item flex-grow-0 pa-2">
+
         <img
           height="20"
           src="@/assets/images/check-mark.svg">
+          
         <span
           class="bottom-text font-weight-bold"
           v-html="item"/>
@@ -72,11 +74,27 @@ export default {
 
   .text-hi-1 {
     font-family: Neuton;
-    font-size: 60px;
+
+    @media screen and (max-width: 600px) {
+      font-size: 30px;
+      padding: 0 16px;      
+    }
+    
+    @media screen and (min-width: 600px) {
+      font-size: 60px;
+    }      
   }
 
   .text-hi-2 {
-    font-size: 30px;
+    @media screen and (max-width: 600px) {
+      font-size: 15px;
+      padding: 0 16px;
+    }
+    
+    @media screen and (min-width: 600px) {
+      font-size: 30px;
+    }      
+
     max-width: 850px;
   }
 
