@@ -33,13 +33,21 @@ export default {
   position: relative;
   overflow-x: hidden;
 
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: .57; }
+  }
+
   .fade {
     position: absolute;  
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(46, 36, 36, .57);
+    // fade in
+    opacity: .57;
+    background-color: rgb(46, 36, 36);    
+    animation: fadein 1s;
   }
 
   .centering-container {
