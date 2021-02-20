@@ -23,8 +23,7 @@
         hide-details
         class="mr-2"/>
 
-      <v-btn
-        flat
+      <v-btn        
         color="black"
         class="text-none white--text"
         :disabled="!code"
