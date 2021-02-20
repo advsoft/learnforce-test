@@ -10,7 +10,7 @@
         align-center
         justify-center
         class="white-block">
-        <span class="block-title font70 mb-4">Wat leuk dat we deze reis samen aan gaan</span>
+        <span class="block-title neuton font-weight-bold font70 mb-4">Wat leuk dat we deze reis samen aan gaan</span>
         <span class="text-h6 text-sm-h4">Zoek je de juiste handvatten om echt door te zetten? Ben jij klaar voor de volgende stap in je carrière? Ik geloof in jouw succes! Samen gaan we aan de slag met ingrediënten voor persoonlijke groei.</span>
         <span class="text-caption text-sm-h5 mt-10 mt-sm-20 align-self-start"><b>Angelien Landstra –</b> Founder Leadership Solutions</span>
       </v-layout>
@@ -30,7 +30,7 @@
         align-center
         justify-center
         class="color-block">
-        <span class="block-title font70 mb-4">Ieder deel van de training heeft een werkboek</span>
+        <span class="block-title neuton font-weight-bold font70 mb-4">Ieder deel van de training heeft een werkboek</span>
         <span class="text-h6 text-sm-h4">Zo verdiep je de materie en krijg je praktische opdrachten om het geleerde meteen in de praktijk te brengen.</span>
 
         <v-btn
@@ -48,7 +48,7 @@
         align-center
         justify-center
         class="white-block">
-        <span class="block-title font70 mb-4">Spraakmakende webinars & events</span>
+        <span class="block-title neuton font-weight-bold font70 mb-4">Spraakmakende webinars & events</span>
         <span class="text-h6 text-sm-h4">In het programma wordt je geregeld uitgenodigd voor webinars, ask-me-anything calls en live events. Heb je gerichte vragen of uitdagingen? Stel ze in de webinars en je krijgt persoonlijk advies.</span>
       </v-layout>
 
@@ -67,7 +67,7 @@
         align-center
         justify-center
         class="color-block">
-        <span class="block-title font70 mb-4">Leer met iedere device, waar je ook bent op eigen tempo</span>
+        <span class="block-title neuton font-weight-bold font70 mb-4">Leer met iedere device, waar je ook bent op eigen tempo</span>
         <span class="text-h6 text-sm-h4">Wisselen van laptop naar tablet of mobiel? Geen enkel probleem! Log in met je andere device en je kunt meteen verder waar je gebleven was. Wel zo handig.</span>
       </v-layout>      
     </v-layout>
@@ -84,28 +84,44 @@
       align-center
       class="bottom-section">
 
-      <v-layout
-        wrap
-        class="trainer-row">
+      <div
+        v-if="$vuetify.breakpoint.xl"
+        class="flipper-container">
 
-        <v-layout
-          column
-          align-center
-          justify-center
-          class="trainer-container color-block">
+        <div
+          class="flipper"
+          :class="{ flipped }">
 
-          <v-avatar size="144">
-            <img src="@/assets/images/trainer-avatar.png"/>
-          </v-avatar>
+          <div 
+            class="flip-face"
+            @click.stop="flipped = true">
 
-          <span class="text-h5 text-sm-h3 neuton font-weight-bold text-center my-6">Angelien Landstra</span>          
-          <span class="text-h6 text-sm-h4 text-center">Executive trainer & coach met meer dan 20 jaar ervaring op het gebied van leiderschap- en team ontwikkeling.</span>          
-        </v-layout>
+            <Trainer
+              key="trainer1"
+              image="trainer-avatar"
+              name="Angelien Landstra"
+              desc="Executive trainer & coach met meer dan 20 jaar ervaring op het gebied van leiderschap- en team ontwikkeling."/>
+          </div>
 
-        <div class="image-block">
-          <img src="@/assets/images/main-5.png"/>
-        </div>
-      </v-layout>
+          <div 
+            class="flip-back"
+            @click.stop="flipped = false">
+
+            <Trainer 
+              key="trainer2"
+              image="trainer-avatar"
+              name="Jane Dow"
+              desc="Top secret"/>
+          </div>
+        </div>             
+      </div>
+
+      <Trainer 
+        v-else
+        key="trainer"
+        image="trainer-avatar"
+        name="Angelien Landstra"
+        desc="Executive trainer & coach met meer dan 20 jaar ervaring op het gebied van leiderschap- en team ontwikkeling."/>
 
       <span class="neuton text-h3 text-sm-h1 font-weight-bold mt-10">{{ currentTime }}</span>
       <span class="neuton font70 font-weight-bold text-center">Your journey starts now</span>
@@ -137,16 +153,19 @@
 <script>
 import moment from 'moment'
 import MainBackground from '@/components/MainBackground'
+import Trainer from '@/components/Trainer'
 
 export default {
   name: 'Home',
   components: {
-    MainBackground
+    MainBackground,
+    Trainer
   },
   data () {
     return {
       timer: null,
-      currentTime: null
+      currentTime: null,
+      flipped: false
     }
   },
   mounted () {
@@ -171,10 +190,7 @@ export default {
     padding: 8%;
 
     .block-title {
-      font-family: Neuton;
-      font-weight: bold;
       line-height: 1;
-      word-break: break-all;
     }
   }
 
@@ -203,11 +219,39 @@ export default {
   }
 
   .bottom-section {
-    .trainer-row {
-      max-width: 1380px;
+    .flipper-container {
+      overflow: hidden;
+      perspective: 1000px;
 
-      .trainer-container {
-        padding: 4%;
+      .flipper {
+        cursor: pointer;
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+        width: 1380px;
+        height: 696px;
+
+        &.flipped {
+          transform: rotateY(180deg);      
+        }
+
+        .flip-face, .flip-back {
+          backface-visibility: hidden;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
+
+        .flip-face {
+          z-index: 2;
+          /* for firefox 31 */
+          transform: rotateY(0deg);
+        }
+
+        .flip-back {
+          transform: rotateY(180deg);
+        }
       }
     }
 
