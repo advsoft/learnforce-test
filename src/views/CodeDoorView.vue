@@ -31,6 +31,7 @@ export default {
 
 .code-door-view {
   position: relative;
+  overflow-x: hidden;
 
   .fade {
     position: absolute;  

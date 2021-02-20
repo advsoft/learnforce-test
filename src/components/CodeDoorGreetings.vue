@@ -9,7 +9,7 @@
       <img src="@/assets/images/trainer-avatar.png"/>
     </v-avatar>
 
-    <template v-if="$vuetify.breakpoint.mdAndUp">
+    <template v-if="$vuetify.breakpoint.lgAndUp">
       <Dot
         v-for="(dot, index) in dots"
         :key="index"
@@ -23,6 +23,30 @@
     <p class="letter-spacing-1-5 neuton text-h4 font-weight-bold my-4 my-sm-10">Zelfleiderschap</p>
     <p class="grey--text lighten-2 tex-h6">We hebben 6 modules gekoppeld aan jouw profiel.</p>
 
+    <div class="mx-n8 mx-sm-n12 mx-md-0 my-4 mt-sm-12 mb-sm-16">
+      <v-slide-group
+        class="modules"
+        show-arrows>
+
+        <v-slide-item
+          v-for="(m, index) in modules"
+          :key="index"
+          class="mr-4">
+
+          <v-layout
+            align-center
+            class="slide-item-container">
+
+            <img
+              :src="imgPath(m.image)"
+              class="mr-2"/>
+
+            <div class="text-item text-h6 font-weight-bold text-left">{{ m.text }}</div>
+          </v-layout>
+        </v-slide-item>
+      </v-slide-group>
+    </div>
+
     <v-btn
       outlined      
       width="245"
@@ -35,12 +59,16 @@
 
 <script>
 import Dot from './Dot'
+import ImgPathMixin from '@/mixins/ImgPathMixin'
 
 export default {
   name: 'CodeDoorGreetings',
   components: {
     Dot
   },
+  mixins: [
+    ImgPathMixin
+  ],
   data () {
     return {
       dots: [
@@ -56,6 +84,11 @@ export default {
         { x: 194, y: 116, r: 4, c: '#150f04' },
         { x: 460, y: 32, r: 4, c: '#150f04' },
         { x: 620, y: 210, r: 4, c: '#150f04' }
+      ],
+      modules: [
+        { text: 'Find your leadership style in 3 steps', image: 'module-1' },
+        { text: 'Find your leadership style in 3 steps', image: 'module-2' },
+        { text: 'Find your leadership style in 3 steps', image: 'module-3' }
       ]
     }
   }
@@ -67,8 +100,27 @@ export default {
 
 .code-door-greetings {
   @media screen and (min-width: 960px) {
-    position: relative;
     width: 757px;
+  }
+
+  .modules {
+    @media screen and (max-width: 960px) {
+      width: 360px;
+    }
+
+    @media screen and (min-width: 960px) {
+      width: 660px;
+    }
+  }
+
+  .slide-item-container {
+    width: 270px;
+    border: 1px solid lightgray;
+
+    .text-item {
+      white-space: normal;
+      line-height: 1.25;
+    }
   }
 }
 </style>
