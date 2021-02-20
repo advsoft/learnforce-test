@@ -7,3 +7,32 @@
     font-size: 70px;
   }  
 }
+
+.v-application {
+  @media screen and (min-width: 600px) {
+    .mt-sm-20 {
+      margin-top: 80px !important;
+    }
+
+    .my-sm-28 {
+      margin-top: 112px !important;
+      margin-bottom: 112px !important;
+    }
+
+    .py-sm-32 {
+      padding-top: 128px !important;
+      padding-bottom: 128px !important;
+    }
+
+    .px-sm-35 {
+      padding-left: 140px !important;
+      padding-right: 140px !important;
+    }
+  }
+
+  @media screen and (min-width: 960px) {
+    .pa-md-26 {
+      padding: 104px !important;
+    }
+  }
+}

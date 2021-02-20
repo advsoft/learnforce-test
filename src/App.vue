@@ -4,10 +4,10 @@
       app
       dark      
       color="#141414"
-      :height="smallScreen ? 60 : 93">
+      :height="$vuetify.breakpoint.xs ? 60 : 93">
 
       <img
-        class="logo"        
+        class="logo ml-sm-5"        
         src="@/assets/images/logo.svg"/>
 
       <v-spacer></v-spacer>
@@ -15,9 +15,9 @@
       <span class="username font-weight-bold">MARCEL</span>
 
       <v-avatar
-        class="avatar"
+        class="avatar ml-2 ml-sm-10 mr-sm-8"
         color="white"
-        :size="smallScreen ? 40 : 57"/>
+        :size="$vuetify.breakpoint.xs ? 40 : 57"/>
     </v-app-bar>
 
     <v-main>
@@ -27,11 +27,8 @@
 </template>
 
 <script>
-import WindowSize from './mixins/WindowSize'
-
 export default {
-  name: 'App',
-  mixins: [ WindowSize ]
+  name: 'App'
 }
 </script>
 
@@ -45,25 +42,15 @@ export default {
     .username {
       font-size: 12px;
     }
-
-    .avatar {
-      margin-left: 8px;      
-    }
   }
 
   @media screen and (min-width: 600px) {      
     .logo {
-      margin-left: 18px;
       height: 33px;
     }
 
     .username {
       font-size: 20px;    
-    }
-
-    .avatar {
-      margin-left: 38px;      
-      margin-right: 26px;
     }
   }
 }

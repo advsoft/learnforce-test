@@ -5,18 +5,20 @@
     align-center
     class="main-background white--text">
 
-    <div class="text-hi-1 text-center font-weight-bold">
+    <div class="text-hi-1 text-center font-weight-bold px-4 px-sm-0">
       Hi Marcel,<br/><br/>Welkom bij Leadership Solutions!
     </div>
 
-    <div class="text-hi-2 text-center">
+    <div class="text-hi-2 text-center px-4 px-sm-0">
       Het platform waar jij kunt ontdekken hoe je succesvol kunt zijn op het gebied van leiderschap.
     </div>
 
     <v-btn
       outlined
       dark
-      x-large>
+      x-large
+      class="my-4 my-sm-28 door text-none"
+      to="/code">
       Geef je code door
     </v-btn>
 
@@ -24,7 +26,7 @@
       justify-space-between wrap
       align-center
       flex-column flex-md-row
-      class="bottom-container flex-grow-0">
+      class="bottom-container flex-grow-0 pa-4 py-sm-11 px-sm-35">
 
       <v-layout
         v-for="(item, index) in bottomText"
@@ -33,8 +35,9 @@
 
         <img
           height="20"
+          class="mr-4"
           src="@/assets/images/check-mark.svg">
-          
+
         <span
           class="bottom-text font-weight-bold"
           v-html="item"/>
@@ -77,7 +80,6 @@ export default {
 
     @media screen and (max-width: 600px) {
       font-size: 30px;
-      padding: 0 16px;      
     }
     
     @media screen and (min-width: 600px) {
@@ -88,7 +90,6 @@ export default {
   .text-hi-2 {
     @media screen and (max-width: 600px) {
       font-size: 15px;
-      padding: 0 16px;
     }
     
     @media screen and (min-width: 600px) {
@@ -98,13 +99,8 @@ export default {
     max-width: 850px;
   }
 
-  button {
-    @media screen and (max-width: 600px) {
-      margin: 16px 0;
-    }    
-
+  .door {
     @media screen and (min-width: 600px) {
-      margin: 113px 0;    
       width: 392px;
     }
   }
@@ -112,20 +108,7 @@ export default {
   .bottom-container {
     width: 100%;
 
-    @media screen and (max-width: 600px) {
-      padding: 16px 16px;
-    }    
-
-    @media screen and (min-width: 600px) {    
-      padding: 46px 142px;
-    }
-
     .bottom-item {
-      img {
-        margin-right: 15px;
-        margin-top: 0px;
-      }
-
       .bottom-text {
         width: 230px;
         font-size: 20px;
