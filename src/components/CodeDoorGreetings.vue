@@ -2,7 +2,7 @@
   <v-layout
     column
     align-center text-center
-    class="code-door-greetings pa-10 pa-md-26">
+    class="code-door-greetings pa-8 py-sm-12 px-md-26">
 
     <v-avatar
       size="119">
@@ -17,12 +17,19 @@
       </Dot>
     </template>
 
-    <p class="neuton font-weight-bold text-h4 text-sm-h2">Gefeliciteerd</p>
+    <p class="letter-spacing-3 font-weight-bold text-h4 text-sm-h2 mt-4">Gefeliciteerd</p>
 
-    <p class="grey--text lighten-2 tex-h6">Je gaat aan de slag met het curriculum over:</p>
-    <p class="">Zelfleiderschap</p>
+    <p class="grey--text lighten-2 tex-h6 mt-4 mt-sm-16">Je gaat aan de slag met het curriculum over:</p>
+    <p class="letter-spacing-1-5 neuton text-h4 font-weight-bold my-4 my-sm-10">Zelfleiderschap</p>
     <p class="grey--text lighten-2 tex-h6">We hebben 6 modules gekoppeld aan jouw profiel.</p>
 
+    <v-btn
+      outlined      
+      width="245"
+      class="text-none"
+      x-large>
+      Start direct
+    </v-btn>
   </v-layout>
 </template>
 
@@ -62,11 +69,6 @@ export default {
   @media screen and (min-width: 960px) {
     position: relative;
     width: 757px;
-  }
-
-  .neuton {
-    font-family: Neuton !important; // override default text-* styles font
-    letter-spacing: 3px !important;
   }
 }
 </style>

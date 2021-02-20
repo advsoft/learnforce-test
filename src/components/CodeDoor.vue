@@ -4,7 +4,7 @@
     align-center text-center
     class="code-door pa-6 pa-md-26">
 
-    <span class="header text-h4 text-sm-h3 font-weight-bold">Geef je code door</span>
+    <span class="neuton text-h4 text-sm-h3 font-weight-bold">Geef je code door</span>
 
     <v-layout
       column
@@ -34,7 +34,7 @@
       </v-btn>
     </v-layout>
 
-    <p class="mx-4 mx-lg-n4">Je gaat straks door een spraakmakend programma op gebied van leiderschap. Wij houden je tussentijds op de hoogte van informatie die relevant is voor jouw leerervaring. Leadership Solutions gaat vertrouwelijk om met jouw informatie in lijn met onze <a href="#" target="_blank">privacy policy</a>.</p>    
+    <p class="mx-4 mx-sm-n10">Je gaat straks door een spraakmakend programma op gebied van leiderschap. Wij houden je tussentijds op de hoogte van informatie die relevant is voor jouw leerervaring. Leadership Solutions gaat vertrouwelijk om met jouw informatie in lijn met onze <a href="#" target="_blank">privacy policy</a>.</p>    
   </v-layout>
 </template>
 
@@ -51,10 +51,6 @@ export default {
 
 <style lang="scss">
 .code-door {
-  .header {
-    font-family: Neuton !important;
-  }
-
   .tex-block {
     max-width: 350px;
   }

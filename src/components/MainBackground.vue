@@ -5,11 +5,11 @@
     align-center
     class="main-background white--text">
 
-    <div class="text-hi-1 text-center font-weight-bold px-4 px-sm-0">
+    <p class="text-h4 text-sm-h2 neuton text-center font-weight-bold px-4 px-sm-0">
       Hi Marcel,<br/><br/>Welkom bij Leadership Solutions!
-    </div>
+    </p>
 
-    <div class="text-hi-2 text-center px-4 px-sm-0">
+    <div class="text-hi-2 text-body-1 text-sm-h4 text-center px-4 px-sm-0">
       Het platform waar jij kunt ontdekken hoe je succesvol kunt zijn op het gebied van leiderschap.
     </div>
 
@@ -31,7 +31,7 @@
       <v-layout
         v-for="(item, index) in bottomText"
         :key="index"
-        class="bottom-item flex-grow-0 pa-2">
+        class="flex-grow-0 pa-2">
 
         <img
           height="20"
@@ -39,7 +39,7 @@
           src="@/assets/images/check-mark.svg">
 
         <span
-          class="bottom-text font-weight-bold"
+          class="bottom-text text-h6 font-weight-bold"
           v-html="item"/>
       </v-layout>
     </v-layout>
@@ -75,28 +75,8 @@ export default {
     height: calc(100vh - #{$topbarHeight});
   }
 
-  .text-hi-1 {
-    font-family: Neuton;
-
-    @media screen and (max-width: 600px) {
-      font-size: 30px;
-    }
-    
-    @media screen and (min-width: 600px) {
-      font-size: 60px;
-    }      
-  }
-
   .text-hi-2 {
-    @media screen and (max-width: 600px) {
-      font-size: 15px;
-    }
-    
-    @media screen and (min-width: 600px) {
-      font-size: 30px;
-    }      
-
-    max-width: 850px;
+    max-width: 1000px;
   }
 
   .door {
@@ -108,12 +88,9 @@ export default {
   .bottom-container {
     width: 100%;
 
-    .bottom-item {
-      .bottom-text {
-        width: 230px;
-        font-size: 20px;
-        line-height: 1;
-      }
+    .bottom-text {
+      width: 235px;
+      line-height: 1;
     }
   }
 }

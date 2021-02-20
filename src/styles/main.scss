@@ -9,6 +9,19 @@
 }
 
 .v-application {
+  // Place this styles within v-application to allow overriding of Vuetify text-* defaults
+  .neuton {
+    font-family: Neuton !important;
+  }  
+
+  .letter-spacing-1-5 {
+    letter-spacing: 1.5px !important;
+  }
+  
+  .letter-spacing-3 {
+    letter-spacing: 3px !important;
+  }  
+
   @media screen and (min-width: 600px) {
     .mt-sm-20 {
       margin-top: 80px !important;
