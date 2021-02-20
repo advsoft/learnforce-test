@@ -12,7 +12,7 @@
 
       <v-spacer></v-spacer>
 
-      <span class="username font-weight-bold">MARCEL</span>
+      <span class="text-caption text-sm-h6 font-weight-bold">MARCEL</span>
 
       <v-avatar
         class="avatar ml-2 ml-sm-10 mr-sm-8"
@@ -38,19 +38,11 @@ export default {
     .logo {
       height: 26px;
     }
-
-    .username {
-      font-size: 12px;
-    }
   }
 
   @media screen and (min-width: 600px) {      
     .logo {
       height: 33px;
-    }
-
-    .username {
-      font-size: 20px;    
     }
   }
 }
